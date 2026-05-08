@@ -1,0 +1,527 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lokasi Proyek - La Suvarna</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffddb5",
+                        "on-primary-fixed-variant": "#004884",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary-container": "#694300",
+                        "surface-container": "#edeeef",
+                        "on-primary-container": "#c0d8ff",
+                        "primary-fixed": "#d4e3ff",
+                        "surface": "#f8f9fa",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001c39",
+                        "tertiary-fixed": "#d2e4ff",
+                        "outline": "#4b5563",
+                        "surface-bright": "#f8f9fa",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "tertiary-container": "#325f8f",
+                        "primary-fixed-dim": "#a4c9ff",
+                        "secondary-container": "#ffaa14",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#a4c9ff",
+                        "on-background": "#191c1d",
+                        "surface-container-low": "#f3f4f5",
+                        "tertiary-fixed-dim": "#9fcaff",
+                        "on-tertiary-fixed-variant": "#164977",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "primary": "#004681",
+                        "on-tertiary-fixed": "#001d37",
+                        "on-surface": "#191c1d",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-fixed-dim": "#ffb955",
+                        "inverse-surface": "#2e3132",
+                        "on-surface-variant": "#26313d",
+                        "surface-tint": "#055fac",
+                        "background": "#f8f9fa",
+                        "primary-container": "#005eaa",
+                        "on-tertiary-container": "#bcd8ff",
+                        "secondary": "#835500",
+                        "tertiary": "#134776",
+                        "outline-variant": "#c1c7d3",
+                        "on-secondary-fixed": "#2a1800"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "12px",
+                        "margin-desktop": "40px",
+                        "stack-md": "24px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "container-max": "1200px",
+                        "stack-lg": "48px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+    @media (max-width: 640px) {
+      body {
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      .material-symbols-outlined {
+        font-size: 18px;
+      }
+      header .h-16 {
+        height: 52px;
+      }
+      main {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 18px;
+        padding-bottom: 78px;
+      }
+      .text-headline-lg {
+        font-size: 21px;
+        line-height: 1.25;
+      }
+      .text-headline-md {
+        font-size: 14px;
+        line-height: 1.25;
+      }
+      .text-body-md,
+      .font-body-md {
+        font-size: 12.5px;
+        line-height: 1.45;
+      }
+      .text-label-md,
+      .font-label-md {
+        font-size: 10.5px;
+        line-height: 1.2;
+      }
+      #searchLokasi {
+        padding-top: 11px;
+        padding-bottom: 11px;
+        font-size: 12px;
+      }
+      .filter-button {
+        padding: 7px 10px;
+        flex: 1 1 calc(50% - 4px);
+        white-space: normal;
+      }
+      .overflow-x-auto {
+        overflow-x: visible;
+      }
+      section .flex.gap-base.w-full {
+        flex-wrap: wrap;
+        padding-bottom: 0;
+      }
+      #lokasiGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .lokasi-card .h-56 {
+        height: 104px;
+      }
+      .lokasi-card .p-stack-sm {
+        padding: 9px;
+        gap: 6px;
+      }
+      .lokasi-card h3 {
+        font-size: 13px;
+        line-height: 1.2;
+      }
+      .lokasi-card .py-2 {
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
+      .lokasi-card .mt-2 {
+        margin-top: 2px;
+      }
+      .lokasi-card .text-\[12px\] {
+        font-size: 10px;
+      }
+      .lokasi-card .font-headline-md.text-secondary {
+        font-size: 13px;
+        line-height: 1.2;
+      }
+      .lokasi-card .mobile-spec {
+        font-size: 10px;
+        line-height: 1.25;
+      }
+      .lokasi-card a {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        font-size: 11px;
+      }
+      .lokasi-card .absolute {
+        top: 8px;
+        left: 8px;
+        padding: 4px 8px;
+        font-size: 10px;
+      }
+      section.mt-stack-lg {
+        margin-top: 24px;
+        padding: 16px;
+      }
+      section.mt-stack-lg .grid.grid-cols-2 {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      section.mt-stack-lg .h-64 {
+        height: 160px;
+      }
+      footer .gap-gutter {
+        gap: 10px;
+      }
+      nav.fixed.bottom-0 .h-20 {
+        height: 58px;
+      }
+      nav.fixed.bottom-0 a {
+        padding: 4px 6px;
+        min-width: 54px;
+      }
+      nav.fixed.bottom-0 span:last-child {
+        font-size: 10px;
+      }
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline docked full-width top-0 sticky z-50 flat no shadows">
+<div class="flex items-center justify-between px-margin-mobile h-16 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="menu">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">La Suvarna</h1>
+</div>
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-md pb-32">
+<!-- Search & Filter Section -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-stack-sm">Cari Hunian Impian Anda</h2>
+<p class="font-body-md text-on-surface-variant mb-stack-md">Temukan lokasi strategis La Suvarna di seluruh Jabodetabek.</p>
+<div class="flex flex-col md:flex-row gap-base items-center">
+<div class="relative w-full md:flex-1">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary focus:border-transparent bg-surface" id="searchLokasi" placeholder="Cari kota atau nama proyek..." type="text"/>
+</div>
+<div class="flex gap-base w-full md:w-auto overflow-x-auto pb-2 no-scrollbar">
+<button class="filter-button bg-primary text-on-primary px-6 py-2 rounded-full font-label-md whitespace-nowrap" data-filter="semua" type="button">Semua</button>
+<button class="filter-button bg-surface-container-high text-on-surface-variant px-6 py-2 rounded-full font-label-md whitespace-nowrap hover:bg-primary-container hover:text-on-primary-container transition-colors" data-filter="tersedia" type="button">Tersedia</button>
+<button class="filter-button bg-surface-container-high text-on-surface-variant px-6 py-2 rounded-full font-label-md whitespace-nowrap hover:bg-primary-container hover:text-on-primary-container transition-colors" data-filter="segera hadir" type="button">Segera Hadir</button>
+<button class="filter-button bg-surface-container-high text-on-surface-variant px-6 py-2 rounded-full font-label-md whitespace-nowrap hover:bg-primary-container hover:text-on-primary-container transition-colors" data-filter="promo" type="button">Promo</button>
+</div>
+</div>
+</section>
+<!-- Location Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter" id="lokasiGrid">
+<!-- La Suvarna Card -->
+<article class="lokasi-card bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant hover:shadow-md transition-shadow group" data-keywords="la suvarna dekat sma 3 3 unit kamar 2 kamar mandi 1 luas 84 m2 7x12 tersedia" data-status="tersedia" data-project="serpong">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="La Suvarna lokasi dekat SMA 3 dengan 3 unit, 2 kamar tidur, 1 kamar mandi, luas tanah 84 m2." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUYH2qz6Y4dWvsQJBinwFLL_42zDFqtwCPyHXsgnPbeHgH7pgO2vum_-meC-RYMK2-Bcm-yCofORizH0d_Ch_mBSMu64aBCJ7l879ZOjUL9M-Rd_FzttEtlS_TrgIXmVSTpAMt4CUrXxIb-LIZHG-Z4xuGWO2ck0WxecxKDbX3Vf_pEO9Q_WvikeSPLnwlmz-VrmIuZaGtssogBekfEpv7arPndVzQqtJP35QjvFrKP4EgvbryDcRt4ssYzX3r8FjfKa-OGL2q1YY"/>
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-lg font-label-md">3 Unit</div>
+</div>
+<div class="p-stack-sm flex flex-col gap-base">
+<h3 class="font-headline-md text-headline-md text-primary">La Suvarna</h3>
+<div class="flex items-center text-on-surface-variant gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="text-label-md">Dekat SMA 3</span>
+</div>
+<div class="flex flex-wrap gap-2 py-2">
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]" data-icon="train">train</span>
+<span class="text-[12px]">3 Unit</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]" data-icon="directions_car">directions_car</span>
+<span class="text-[12px]">LT 84 m2</span>
+</div>
+</div>
+<div class="mt-2">
+<p class="text-label-md text-outline">Mulai dari</p>
+<p class="font-headline-md text-secondary">3 Unit Tersedia</p>
+<p class="mobile-spec text-on-surface-variant">2 KT, 1 KM, LT 84 m2</p>
+</div>
+<a class="block w-full bg-primary text-on-primary py-3 rounded-lg font-label-md mt-2 hover:bg-primary-container transition-colors text-center" href="index_detail.html?project=serpong">Lihat Detail</a>
+</div>
+</article>
+<!-- La Suvarna Card -->
+<article class="lokasi-card bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant hover:shadow-md transition-shadow group" data-keywords="la suvarna villa series belakang transmart 4 unit 600 jutaan tipe 36 kamar 2 kamar mandi 1 luas 105 m2" data-status="tersedia" data-project="bekasi">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="La Suvarna Villa Series lokasi belakang Transmart dengan 4 unit harga 600 jutaan, tipe 36, 2 kamar tidur, 1 kamar mandi, luas 105 m2." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCedVHY_Zgofcsa1670MJT52ldeApBLOv03UkLHLdSHR039scxWRUFgVRv3tW-7u3QcoUF7HIkPSypKCg17b6pb02JzG28WuJBcC7Hsqa9OvbUGEB1uOx4F3M3cxrhpNRHyXdDKI4Il5FE3uVJUlgkp7qNAa5Ip20hV2RsQXSJU1GsaUz6jyWkfKbWHhZhISuv0d-JE2HqzhgmaZd2YetIVp_ClvDbl7sD6IFfSgNui0hjMK716FPavABIPpgHN5ARAezEaDeRoRQc"/>
+<div class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-lg font-label-md">4 Unit</div>
+</div>
+<div class="p-stack-sm flex flex-col gap-base">
+<h3 class="font-headline-md text-headline-md text-primary">La Suvarna</h3>
+<div class="flex items-center text-on-surface-variant gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="text-label-md">Belakang Transmart</span>
+</div>
+<div class="flex flex-wrap gap-2 py-2">
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]" data-icon="shopping_bag">shopping_bag</span>
+<span class="text-[12px]">4 Unit</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]" data-icon="school">school</span>
+<span class="text-[12px]">Tipe 36</span>
+</div>
+</div>
+<div class="mt-2">
+<p class="text-label-md text-outline">Mulai dari</p>
+<p class="font-headline-md text-secondary">Rp 600 Jutaan</p>
+<p class="mobile-spec text-on-surface-variant">Tipe 36, 2 KT, 1 KM, LT 105 m2</p>
+</div>
+<a class="block w-full bg-primary text-on-primary py-3 rounded-lg font-label-md mt-2 hover:bg-primary-container transition-colors text-center" href="index_detail.html?project=bekasi">Lihat Detail</a>
+</div>
+</article>
+<!-- Ruyung Hewan Residence Card -->
+<article class="lokasi-card bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant hover:shadow-md transition-shadow group" data-keywords="ruyung hewan residence tarantang tipe 36 108 dp 0 angsuran 1,8 jutaan kamar 2 kamar mandi 1 luas 108 m2" data-status="tersedia" data-project="depok">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Ruyung Hewan Residence di Tarantang, tipe 36/108, 2 kamar tidur, 1 kamar mandi, luas 108 m2." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEXgs8jZgBh4VWnTs9WBIT2soPa_Tl_JHQZmoQBf40AOV8fPVoZA2glCi1hWb6VuZGgvRkURzQGIUSAbDVzzUcvnheMqVzAx4mM9Gk6iC5CrO4gonXHA7tefzq_N013gL6iaf9_5MtvRtWKDfh2HlQuT4FKEPUOEdn5vo1lRfykLtiseo2hZbuQg9nw-QNDtBvPXbkkRzaKGH_CgLpXgoGNSRAj3zlq9LfisLw18AIfqOggSmgRIQlKmBNOqMecWZTVwo0GBaZ9Ig"/>
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-lg font-label-md">Tersedia</div>
+</div>
+<div class="p-stack-sm flex flex-col gap-base">
+<h3 class="font-headline-md text-headline-md text-primary">Ruyung Hewan Residence</h3>
+<div class="flex items-center text-on-surface-variant gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="text-label-md">Tarantang</span>
+</div>
+<div class="flex flex-wrap gap-2 py-2">
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]" data-icon="hospital">local_hospital</span>
+<span class="text-[12px]">Tipe 36/108</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]" data-icon="directions_car">directions_car</span>
+<span class="text-[12px]">LT 108 m2</span>
+</div>
+</div>
+<div class="mt-2">
+<p class="text-label-md text-outline">Mulai dari</p>
+<p class="font-headline-md text-secondary">Angsuran 1,8 Jutaan</p>
+<p class="mobile-spec text-on-surface-variant">Tipe 36/108, 2 KT, 1 KM, LT 108 m2</p>
+</div>
+<a class="block w-full bg-primary text-on-primary py-3 rounded-lg font-label-md mt-2 hover:bg-primary-container transition-colors text-center" href="index_detail.html?project=depok">Lihat Detail</a>
+</div>
+</article>
+<!-- La Suvarna Riverside Card -->
+<article class="lokasi-card bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant hover:shadow-md transition-shadow group" data-keywords="la suvarna riverside kalumbuk tipe 36 harga 400 jutaan kamar 2 kamar mandi 1 luas 102 m2" data-status="tersedia" data-project="tangerang">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A modern cluster house in Tangerang with a secure gated entrance and wide access roads. The photography is professional and bright, emphasizing the community atmosphere and safety of the neighborhood. The aesthetic follows the clean white and navy blue corporate identity of La Suvarna, highlighting a high-end editorial feel with generous white space and professional composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO_wTE3C5x6SVODuZ-1NPvktBWPt8wEp0gjg_BN6Z3WoFeK7GpdvJ3Ryk-ZRSkcRk7KPYR9gEWxsrRaYFhNTtEuQsUXXw5E-aDJyPoJ23JJoOV8Bjo8yydnbD3cmzMqhmnsDX7RMChMKui3_axhfFGEU9wTUt9BJsBW5vB1tyFqbxhWoM1X5HyQhXVna_iI7JfbeKtIrTYgeZ61UsM0tejLgdw5ZR5p6dnYas7qk6CSMTbfJTjG4XUyEFt5W3MyjMDKOteaOE3T7Y"/>
+<div class="absolute top-4 left-4 bg-surface-variant text-on-surface-variant px-3 py-1 rounded-lg font-label-md">Tipe 36</div>
+</div>
+<div class="p-stack-sm flex flex-col gap-base">
+<h3 class="font-headline-md text-headline-md text-primary">La Suvarna Riverside</h3>
+<div class="flex items-center text-on-surface-variant gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="text-label-md">Kalumbuk</span>
+</div>
+<div class="flex flex-wrap gap-2 py-2">
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]" data-icon="factory">factory</span>
+<span class="text-[12px]">Tipe 36</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]" data-icon="airport_shuttle">airport_shuttle</span>
+<span class="text-[12px]">LT 102 m2</span>
+</div>
+</div>
+<div class="mt-2">
+<p class="text-label-md text-outline">Mulai dari</p>
+<p class="font-headline-md text-secondary">Mulai Rp 400 Jutaan</p>
+<p class="mobile-spec text-on-surface-variant">Tipe 36, 2 KT, 1 KM, LT 102 m2</p>
+</div>
+<a class="block w-full bg-primary text-on-primary py-3 rounded-lg font-label-md mt-2 hover:bg-primary-container transition-colors text-center" href="index_detail.html?project=tangerang">Lihat Detail</a>
+</div>
+</article>
+</div>
+<!-- Featured Section Asymmetric -->
+<section class="mt-stack-lg bg-primary text-on-primary rounded-2xl p-stack-md flex flex-col md:flex-row gap-stack-md items-center">
+<div class="md:w-1/2 flex flex-col gap-stack-sm">
+<span class="text-secondary-fixed font-label-md">LOKASI TERPOPULER</span>
+<h2 class="font-headline-lg text-headline-lg">Mengapa Memilih La Suvarna?</h2>
+<p class="font-body-md text-on-primary-container">Lokasi dekat SMA 3 dengan stok terbatas 3 unit. Spesifikasi unit: 2 kamar tidur, 1 kamar mandi, dan luas tanah 84 m2 (7x12).</p>
+<div class="grid grid-cols-2 gap-base mt-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span class="text-label-md">Sertifikat Hak Milik</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span class="text-label-md">Keamanan 24 Jam</span>
+</div>
+</div>
+</div>
+<div class="md:w-1/2 h-64 md:h-80 w-full overflow-hidden rounded-xl shadow-lg">
+<img class="w-full h-full object-cover" data-alt="Peta lokasi strategis area Dekat SMA 3 untuk La Suvarna." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7YmHV3qCu-3EFn-KYFpo7SaJdNlj1hvq1DdWkW6MQn3z6AGb3jJbVm9SNyvsQThzfp7l5e90xHKIqLw0KE-z44jSnBY9NjMKFOnbt2tI35r0ARLJlGtuCNqVwItGPawvcMq0fsvE9heFBg9l5zk7DDV90oiwUkPXU6dMqVg8MdiDsxfftLf2gkasTr6BWAbIHYyHqZXfV4lJjuCsyNrPYO81xNZJd7CBnzhsOMdEeEhfjCSYmANH2LGk9olDIXUht6q1IT6vBr7s"/>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-highest w-full bg-surface-container-high dark:bg-surface-container-highest flat no shadows">
+<div class="flex flex-col items-center justify-center py-stack-lg px-margin-mobile space-y-stack-md w-full mb-20">
+<h2 class="font-headline-md text-headline-md text-primary">La Suvarna</h2>
+<div class="flex flex-wrap justify-center gap-gutter">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="index_mobile.html">Tentang Kami</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="index_lihat.html">Proyek Kami</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="navbar_whatsapp.html">Hubungi Kami</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="index_mobile.html">Kebijakan Privasi</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface dark:text-on-surface-variant text-center max-w-md">&copy; 2024 La Suvarna Property Indonesia. Hunian Nyaman Keluarga Bahagia.</p>
+</div>
+</footer>
+<!-- BottomNavBar -->
+<nav class="bg-surface dark:bg-surface-container-lowest fixed bottom-0 left-0 w-full z-50 border-t border-outline-variant dark:border-outline shadow-sm">
+<div class="flex justify-around items-center h-20 w-full px-base pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1 hover:text-primary transition-colors active:scale-95" href="index_mobile.html">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1 active:scale-95 transition-transform duration-150" href="index_lihat.html">
+<span class="material-symbols-outlined" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label-md text-label-md">Lokasi</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1 hover:text-primary transition-colors active:scale-95" href="navbar_simulasi.html">
+<span class="material-symbols-outlined" data-icon="calculate">calculate</span>
+<span class="font-label-md text-label-md">Simulasi</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1 hover:text-primary transition-colors active:scale-95" href="navbar_whatsapp.html">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="font-label-md text-label-md">WhatsApp</span>
+</a>
+</div>
+</nav>
+<script>
+    const storageKey = 'laSuvarnaProjectsV2';
+
+    function getAdminProjects() {
+        try {
+            return JSON.parse(localStorage.getItem(storageKey)) || {};
+        } catch (error) {
+            return {};
+        }
+    }
+
+    function applyAdminProjects() {
+        const projects = getAdminProjects();
+        document.querySelectorAll('[data-project]').forEach((card) => {
+            const data = projects[card.dataset.project];
+            if (!data) return;
+
+            const image = card.querySelector('img');
+            const title = card.querySelector('h3');
+            const location = card.querySelector('.text-label-md');
+            const price = card.querySelector('.font-headline-md.text-secondary');
+            const badge = card.querySelector('.absolute');
+
+            if (image && data.image) image.src = data.image;
+            if (title && data.name) title.textContent = data.name;
+            if (location && data.location) location.textContent = data.location;
+            if (price && data.price) price.textContent = data.price;
+            if (badge && data.status) badge.textContent = data.status;
+            if (data.status) card.dataset.status = data.status.toLowerCase();
+            if (data.name || data.location || data.status) {
+                card.dataset.keywords = `${data.name || ''} ${data.location || ''} ${data.status || ''}`.toLowerCase();
+            }
+        });
+    }
+
+    const searchLokasi = document.getElementById('searchLokasi');
+    const filterButtons = Array.from(document.querySelectorAll('.filter-button'));
+    const lokasiCards = Array.from(document.querySelectorAll('.lokasi-card'));
+    let activeFilter = 'semua';
+
+    function setFilterButton(button) {
+        filterButtons.forEach((item) => {
+            item.classList.remove('bg-primary', 'text-on-primary');
+            item.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+        });
+        button.classList.add('bg-primary', 'text-on-primary');
+        button.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+    }
+
+    function filterLokasi() {
+        const keyword = searchLokasi.value.trim().toLowerCase();
+        lokasiCards.forEach((card) => {
+            const matchKeyword = !keyword || card.dataset.keywords.includes(keyword);
+            const matchFilter = activeFilter === 'semua' || card.dataset.status === activeFilter;
+            card.classList.toggle('hidden', !(matchKeyword && matchFilter));
+        });
+    }
+
+    filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            activeFilter = button.dataset.filter;
+            setFilterButton(button);
+            filterLokasi();
+        });
+    });
+
+    searchLokasi.addEventListener('input', filterLokasi);
+    applyAdminProjects();
+    filterLokasi();
+    window.addEventListener('storage', (event) => {
+        if (event.key !== storageKey) return;
+        applyAdminProjects();
+        filterLokasi();
+    });
+</script>
+</body></html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,478 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Metropolis:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#d5e3ff",
+                    "on-primary-fixed-variant": "#1f477b",
+                    "surface-bright": "#f8f9fa",
+                    "inverse-surface": "#2e3132",
+                    "surface-container-low": "#f3f4f5",
+                    "primary-container": "#003366",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#001e3f",
+                    "outline": "#4b5563",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "secondary": "#7f5700",
+                    "background": "#f8f9fa",
+                    "on-tertiary-fixed-variant": "#004786",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#6a4800",
+                    "secondary-fixed-dim": "#ffba3b",
+                    "inverse-on-surface": "#f0f1f2",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e7e8e9",
+                    "outline-variant": "#c3c6d1",
+                    "surface-variant": "#e1e3e4",
+                    "on-primary-container": "#799dd6",
+                    "on-tertiary-container": "#5f9df0",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#281900",
+                    "on-tertiary-fixed": "#001c3b",
+                    "tertiary-fixed": "#d5e3ff",
+                    "on-secondary-fixed-variant": "#604100",
+                    "surface-dim": "#d9dadb",
+                    "on-surface": "#191c1d",
+                    "on-surface-variant": "#26313d",
+                    "inverse-primary": "#a7c8ff",
+                    "surface-container": "#edeeef",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#ffdead",
+                    "primary": "#001e40",
+                    "on-primary-fixed": "#001b3c",
+                    "surface-tint": "#3a5f94",
+                    "surface-container-highest": "#e1e3e4",
+                    "secondary-container": "#feb316",
+                    "primary-fixed-dim": "#a7c8ff",
+                    "tertiary-fixed-dim": "#a6c8ff",
+                    "tertiary-container": "#003363",
+                    "surface": "#f8f9fa",
+                    "on-background": "#191c1d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "sm": "12px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "lg": "48px",
+                    "base": "8px",
+                    "xl": "80px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-md": ["Metropolis"],
+                    "headline-xl": ["Metropolis"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Metropolis"],
+                    "label-bold": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "fontWeight": "600"}],
+                    "label-bold": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(rgba(0, 30, 64, 0.7), rgba(0, 30, 64, 0.7)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface fixed top-0 w-full z-50 border-b border-outline-variant dark:border-outline flat no shadows">
+<div class="flex justify-between items-center px-gutter max-w-container-max mx-auto h-20">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">La Suvarna</div>
+<div class="hidden md:flex items-center gap-lg">
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed border-b-2 border-secondary pb-1" href="index_mobile.html">Properties</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-200" href="navbar_simulasi.html">Mortgage Calculator</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-200" href="index_lihat.html">Locations</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-200" href="navbar_whatsapp.html">Testimonials</a>
+</div>
+<div class="flex gap-md">
+<a class="hidden lg:block px-md py-sm font-label-bold text-label-bold border border-primary text-primary rounded-lg hover:bg-primary-fixed transition-all" href="navbar_whatsapp.html">Contact Us</a>
+<a class="px-md py-sm font-label-bold text-label-bold bg-secondary-container text-on-secondary-container rounded-lg shadow-sm hover:translate-y-[-2px] transition-all" href="navbar_whatsapp.html">Schedule Viewing</a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="hero-gradient min-h-[921px] flex items-center pt-20" data-alt="A luxurious modern residential house with expansive glass windows and a clean white facade, captured during the golden hour. The architecture is sharp and contemporary, set against a lush, manicured lawn. The lighting is warm and inviting, emphasizing a premium corporate real estate aesthetic with deep blues and golden highlights.">
+<div class="px-gutter max-w-container-max mx-auto w-full">
+<div class="max-w-2xl text-white">
+<span class="bg-secondary-container text-on-secondary-container px-sm py-xs font-label-bold text-label-bold rounded-lg mb-md inline-block uppercase tracking-wider">Promo Terbatas</span>
+<h1 class="font-headline-xl text-headline-xl mb-md">Hunian Impian, DP 0%</h1>
+<p class="font-body-lg text-body-lg mb-lg opacity-90">Miliki rumah idaman dengan kemudahan akses dan cicilan ringan bersama BNI. Solusi tepat untuk masa depan keluarga Anda.</p>
+<div class="flex flex-wrap gap-md">
+<a class="bg-secondary-container text-on-secondary-container px-lg py-md font-label-bold text-label-bold rounded-lg hover:bg-secondary transition-all" href="index_lihat.html">Lihat Lokasi</a>
+<a class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-lg py-md font-label-bold text-label-bold rounded-lg hover:bg-white/20 transition-all" href="navbar_whatsapp.html">Hubungi Agen</a>
+</div>
+</div>
+</div>
+</header>
+<!-- USP Section -->
+<section class="py-xl bg-surface-container-low">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="flex flex-col items-center text-center p-md bg-white rounded-xl shadow-sm border border-outline-variant hover:translate-y-[-4px] transition-all">
+<div class="w-16 h-16 bg-primary-fixed rounded-full flex items-center justify-center text-primary mb-md">
+<span class="material-symbols-outlined text-[32px]">payments</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-sm">DP 0%</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Kemudahan memiliki hunian tanpa beban uang muka yang memberatkan di awal.</p>
+</div>
+<div class="flex flex-col items-center text-center p-md bg-white rounded-xl shadow-sm border border-outline-variant hover:translate-y-[-4px] transition-all">
+<div class="w-16 h-16 bg-primary-fixed rounded-full flex items-center justify-center text-primary mb-md">
+<span class="material-symbols-outlined text-[32px]">gavel</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-sm">Legalitas Terjamin</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Sertifikat sudah pecah per kavling dan IMB lengkap untuk keamanan investasi Anda.</p>
+</div>
+<div class="flex flex-col items-center text-center p-md bg-white rounded-xl shadow-sm border border-outline-variant hover:translate-y-[-4px] transition-all">
+<div class="w-16 h-16 bg-primary-fixed rounded-full flex items-center justify-center text-primary mb-md">
+<span class="material-symbols-outlined text-[32px]">description</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-sm">Akad Mudah</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Proses administrasi yang cepat dan transparan didampingi oleh tim profesional BNI.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Locations Section -->
+<section class="py-xl">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-xs">Lokasi Strategis</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Pilihan hunian terbaik di kawasan yang terus berkembang.</p>
+</div>
+<a class="text-primary font-label-bold flex items-center gap-xs hover:underline" href="index_lihat.html">
+                    Lihat Semua <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md">
+<!-- Location 1 -->
+<div class="group bg-white rounded-xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all" data-project="serpong">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="La Suvarna lokasi dekat SMA 3 dengan 3 unit, 2 kamar tidur, 1 kamar mandi, luas tanah 84 m2." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCp-Z9pQMJ52owqkJo2Ub39ZuvESn-ea3s3FixPNsVXOt_yFA1bYEO5g9onJDf3qkl0Y1DdM5ZsKIKnUcYRfjwmuneqJGEepCMDWzGuMyAShrR9EDfUjSr-8oOrqmTh1ddOEwD4-OKBmVAmAwWf3ss4oRKXoo7Mv1cJjJD3orUXMi4dIunWzXDf12JKNHvaiLrpER9rGweQgUUBE22oCA41QwRXS-FDz9zdw-hO8H_q28Tu9tP_uEgzzG4_slCqLmlPMPWTMJivzEQ"/>
+</div>
+<div class="p-md">
+<span class="text-secondary font-label-bold text-label-sm mb-xs block">3 Unit</span>
+<h4 class="font-headline-md text-headline-md mb-xs">La Suvarna</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Dekat SMA 3</p>
+<div class="flex justify-between items-center text-on-surface-variant">
+<div class="flex items-center gap-xs font-label-sm">
+<span class="material-symbols-outlined text-[18px]">home</span> 3 Unit
+                            </div>
+<div class="flex items-center gap-xs font-label-sm">
+<span class="material-symbols-outlined text-[18px]">payments</span> DP 0%
+                            </div>
+<div class="flex items-center gap-xs font-label-sm">
+<span class="material-symbols-outlined text-[18px]">location_on</span> Padang
+                            </div>
+</div>
+</div>
+</div>
+<!-- Location 2 -->
+<div class="group bg-white rounded-xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all" data-project="bekasi">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="La Suvarna Villa Series lokasi belakang Transmart dengan 4 unit harga 600 jutaan, tipe 36, 2 kamar tidur, 1 kamar mandi, luas 105 m2." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3eQu1IKe-h9JvsZhFVNNuEZKPfLGdYbiRxVKCdmB2V3oK8jc04g9Ga8w8jXeM-Ss9tReqC1FKx980u44sNTUh8KYbyVf2nIbGXdSivPhUpiJR2lfSMfSkJSCQfc1FFWNKUsVlJpWnfjc0UOYQ_RcSDodlEhTetBajW5aLP96iC4wvZvcHkHMN_iAmyYzI5OVICi1CkIfUnt75FM-gJxQK0kNjqfyPB2zg3KW_4aDNw2aK6V2jZC0aZVVDbXJv3CADyhM59xRY5_rf"/>
+</div>
+<div class="p-md">
+<span class="text-secondary font-label-bold text-label-sm mb-xs block">4 Unit</span>
+<h4 class="font-headline-md text-headline-md mb-xs">La Suvarna</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Rp 600 Jutaan</p>
+<div class="flex justify-between items-center text-on-surface-variant">
+<div class="flex items-center gap-xs font-label-sm">
+<span class="material-symbols-outlined text-[18px]">home</span> 4 Unit
+                            </div>
+<div class="flex items-center gap-xs font-label-sm">
+<span class="material-symbols-outlined text-[18px]">storefront</span> Transmart
+                            </div>
+<div class="flex items-center gap-xs font-label-sm">
+<span class="material-symbols-outlined text-[18px]">location_on</span> Padang
+                            </div>
+</div>
+</div>
+</div>
+<!-- Location 3 -->
+<div class="group bg-white rounded-xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all" data-project="depok">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Ruyung Hewan Residence di Tarantang, tipe 36/108, 2 kamar tidur, 1 kamar mandi, luas 108 m2." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCyr_VRmo1jsjr4vpIt-NyYNAwgawxkbB3LVn77coKL8QjKII_uYZXCnH8SsfeIEDU7GuNitreGVzp6jaupzA5jytExkTNFtLvz_VZqh12x0FYeJgpehQiuirxCU5lFZBC5rSz1iL49xwth8zxrmirXPhTnJ5W3Haq3Vo5UfvZTOO1lmB57RIHHshiFnmIgkM890obxhOE_FQJXLRFzZu4dhp0jSEbaUGNzZF2sH727YLYv0eYMgYSOIItsUt1xEVuhQ2aIpfo9SWp"/>
+</div>
+<div class="p-md">
+<span class="text-secondary font-label-bold text-label-sm mb-xs block">Tipe 36/108</span>
+<h4 class="font-headline-md text-headline-md mb-xs">Ruyung Hewan Residence</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">DP 0%, Angsuran 1,8 Jutaan</p>
+<div class="flex justify-between items-center text-on-surface-variant">
+<div class="flex items-center gap-xs font-label-sm">
+<span class="material-symbols-outlined text-[18px]">square_foot</span> 36/108
+                            </div>
+<div class="flex items-center gap-xs font-label-sm">
+<span class="material-symbols-outlined text-[18px]">payments</span> DP 0%
+                            </div>
+<div class="flex items-center gap-xs font-label-sm">
+<span class="material-symbols-outlined text-[18px]">location_on</span> Tarantang
+                            </div>
+</div>
+</div>
+</div>
+<!-- Location 4 -->
+<div class="group bg-white rounded-xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all" data-project="tangerang">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="La Suvarna Riverside di Kalumbuk, mulai tipe 36 dengan harga 400 jutaan." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsHEc4KY0l1RZySlOX0jYlPsYGjdghNwj7U82XTD-EKwCjwEB38RaEG8ENi1m1_gW11DRoJ-ebecJWUNZn6k_CLcDEyW-oBQkDINXDO71FlorYiDMMj3fKCVfVmCAVoSL0SkyoqIXa8giuje450V9k0v_c1xfwfXBY6JQnShW7je3hWSf4L_fR0xwlTOr84y11HIeyML2wv7aBA3nfgCsdjB6hGjHI7jGcAOkN8W57xTDq6GnN77_xvWDa9yqmrgekHTFKdIjaogqM"/>
+</div>
+<div class="p-md">
+<span class="text-secondary font-label-bold text-label-sm mb-xs block">Mulai Tipe 36</span>
+<h4 class="font-headline-md text-headline-md mb-xs">La Suvarna Riverside</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Mulai Rp 400 Jutaan</p>
+<div class="flex justify-between items-center text-on-surface-variant">
+<div class="flex items-center gap-xs font-label-sm">
+<span class="material-symbols-outlined text-[18px]">square_foot</span> Tipe 36
+                            </div>
+<div class="flex items-center gap-xs font-label-sm">
+<span class="material-symbols-outlined text-[18px]">payments</span> 400 Jt
+                            </div>
+<div class="flex items-center gap-xs font-label-sm">
+<span class="material-symbols-outlined text-[18px]">location_on</span> Kalumbuk
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- BNI Mortgage Table Section -->
+<section class="py-xl bg-surface-container">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="text-center mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-sm">Simulasi Angsuran BNI</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Rincian pembiayaan transparan untuk membantu perencanaan keuangan Anda.</p>
+</div>
+<div class="bg-white rounded-xl shadow-lg border border-outline-variant overflow-hidden max-w-4xl mx-auto">
+<div class="p-lg bg-primary text-white flex justify-between items-center">
+<div>
+<p class="font-label-bold text-label-bold uppercase">Angsuran Per Bulan</p>
+<h3 class="font-headline-xl text-headline-xl text-secondary-container">Rp 2.135.000*</h3>
+</div>
+<div class="hidden md:block">
+<img alt="BNI Logo" class="h-12 brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz562Dmnx8gsZuYcpgp9GNP5SZPJQAYkUfkkUEEyzGJ6mbr3gZ5-Bj8RAzJa7H7eAtz6fZW2R1CSiDjv2TI_9_gnm4ww51eAgDexk2Y94Y2TuD-O-f_OPrYtnrrCcHD3fKNc09or2FnatPA44kJ3bTA-kPZlxqDfMQ_PgxGrwtP6TPM1WT9PVkVqhP014zAwL18v7-3BIbg9Yx97Wocf4VjG4HaACXdjDEryQr3d-cDf4EEBY0Vl7C57mAyORKHNntBctWjfO5ovGt"/>
+</div>
+</div>
+<div class="p-lg">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md mb-lg">
+<div class="border-b border-outline-variant pb-md">
+<p class="font-label-bold text-label-bold text-on-surface-variant mb-xs">Harga Jual</p>
+<p class="font-headline-md text-headline-md text-primary">Rp 328.000.000</p>
+</div>
+<div class="border-b border-outline-variant pb-md">
+<p class="font-label-bold text-label-bold text-on-surface-variant mb-xs">Plafon Kredit</p>
+<p class="font-headline-md text-headline-md text-primary">Rp 285.000.000</p>
+</div>
+<div class="border-b border-outline-variant pb-md">
+<p class="font-label-bold text-label-bold text-on-surface-variant mb-xs">Tenor</p>
+<p class="font-headline-md text-headline-md text-primary">20 Tahun</p>
+</div>
+<div class="border-b border-outline-variant pb-md">
+<p class="font-label-bold text-label-bold text-on-surface-variant mb-xs">Suku Bunga</p>
+<p class="font-headline-md text-headline-md text-primary">6.75% fixed 2 thn</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-md rounded-lg">
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">*Estimasi angsuran di atas bersifat ilustratif. Suku bunga dan ketentuan dapat berubah sesuai dengan kebijakan Bank BNI yang berlaku pada saat akad kredit.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bank Partner Section -->
+<section class="py-lg border-y border-outline-variant bg-white">
+<div class="px-gutter max-w-container-max mx-auto flex flex-col md:flex-row items-center justify-center gap-lg">
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest">Partner Perbankan Eksklusif</p>
+<div class="flex items-center gap-md">
+<img alt="BNI Logo" class="h-10 grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBESAjyKu0ZmXn1xE87mZkSuns-vNtqVitk8VUBAG1JqbeDbV0GQiTWtqNA5xao0ffSBuRJh0d1m4T5loIUokK2U6rzr1o87kOHOj8DhAY2xdVyqIeOpABa9qYOx0tAk3JNbSw2i5xe2iALvstW6B50jS5hnNAHLsxmnFQz2YVWirXQSDZOH1NXaVXyq7lcRY-tz2nyLbB3Nb84BXipCCu1u9j1DDYG8qkF9qz6Nbd483jIvA-rlJto18QaqN30xCIbnfarf6R2QFV"/>
+<div class="h-8 w-[1px] bg-outline-variant hidden md:block"></div>
+<p class="font-body-md text-body-md text-primary font-semibold">La Suvarna x BNI Griya</p>
+</div>
+</div>
+</section>
+<!-- Contact Form/CTA Section -->
+<section class="py-xl">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="bg-primary rounded-2xl overflow-hidden shadow-xl flex flex-col lg:flex-row">
+<div class="lg:w-1/2 p-xl text-white">
+<h2 class="font-headline-lg text-headline-lg mb-md">Hubungi Konsultan Kami</h2>
+<p class="font-body-lg text-body-lg mb-lg">Dapatkan informasi lebih lanjut mengenai unit tersedia, survei lokasi, dan bantuan simulasi KPR secara gratis.</p>
+<div class="space-y-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">call</span>
+</div>
+<span class="font-body-md">+62 21 1234 5678</span>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<span class="font-body-md">sales@lasuvarna.co.id</span>
+</div>
+</div>
+<div class="mt-xl pt-lg border-t border-white/20">
+<p class="font-label-bold text-label-bold mb-md">Respon Cepat via WhatsApp</p>
+<a class="bg-[#25D366] text-white px-lg py-md rounded-lg font-label-bold flex items-center gap-sm hover:brightness-110 transition-all" href="https://wa.me/6285182482051">
+<span class="material-symbols-outlined">chat</span> Chat via WhatsApp
+                        </a>
+</div>
+</div>
+<div class="lg:w-1/2 bg-white p-xl">
+<form class="space-y-md" id="desktopContactForm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<label class="font-label-bold text-label-bold text-primary">Nama Lengkap</label>
+<input class="w-full border border-outline-variant p-sm rounded-lg focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Contoh: Budi Santoso" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-bold text-label-bold text-primary">Nomor WhatsApp</label>
+<input class="w-full border border-outline-variant p-sm rounded-lg focus:ring-2 focus:ring-primary focus:outline-none" placeholder="0812..." type="tel"/>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-bold text-label-bold text-primary">Lokasi Minat</label>
+<select class="w-full border border-outline-variant p-sm rounded-lg focus:ring-2 focus:ring-primary focus:outline-none">
+<option>La Suvarna</option>
+<option>La Suvarna</option>
+<option>Ruyung Hewan Residence</option>
+<option>La Suvarna Riverside</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-bold text-label-bold text-primary">Pesan (Opsional)</label>
+<textarea class="w-full border border-outline-variant p-sm rounded-lg focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Saya tertarik dengan unit di..." rows="4"></textarea>
+</div>
+<button class="w-full bg-secondary-container text-on-secondary-container py-md font-label-bold text-label-bold rounded-lg shadow-sm hover:translate-y-[-2px] transition-all" type="submit">Kirim Permintaan Informasi</button>
+<p class="hidden text-primary font-label-bold text-label-bold" id="desktopFormMessage">Permintaan terkirim. Tim kami akan menghubungi Anda melalui WhatsApp.</p>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-primary-container w-full py-xl border-t border-white/10">
+<div class="grid grid-cols-1 md:grid-cols-12 px-gutter max-w-container-max mx-auto gap-md">
+<div class="md:col-span-4">
+<div class="font-headline-md text-headline-md text-secondary mb-md">La Suvarna</div>
+<p class="font-body-sm text-body-sm text-primary-fixed max-w-xs">Penyedia solusi hunian premium dan investasi properti terpercaya di Indonesia sejak 2010.</p>
+</div>
+<div class="md:col-span-2">
+<h4 class="font-label-bold text-label-bold text-on-primary mb-md">Layanan</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-primary-fixed hover:opacity-100 hover:text-secondary transition-all" href="index_mobile.html">Privacy Policy</a></li>
+<li><a class="font-body-sm text-body-sm text-primary-fixed hover:opacity-100 hover:text-secondary transition-all" href="index_mobile.html">Terms of Service</a></li>
+</ul>
+</div>
+<div class="md:col-span-3">
+<h4 class="font-label-bold text-label-bold text-on-primary mb-md">Edukasi KPR</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-primary-fixed hover:opacity-100 hover:text-secondary transition-all" href="navbar_simulasi.html">BNI Mortgage Guide</a></li>
+<li><a class="font-body-sm text-body-sm text-primary-fixed hover:opacity-100 hover:text-secondary transition-all" href="index_lihat.html">Developer Portal</a></li>
+</ul>
+</div>
+<div class="md:col-span-3">
+<h4 class="font-label-bold text-label-bold text-on-primary mb-md">Media Sosial</h4>
+<div class="flex gap-md">
+<a class="text-primary-fixed hover:text-secondary transition-all" href="index_mobile.html"><span class="material-symbols-outlined">public</span></a>
+<a class="text-primary-fixed hover:text-secondary transition-all" href="navbar_whatsapp.html"><span class="material-symbols-outlined">share</span></a>
+<a class="text-primary-fixed hover:text-secondary transition-all" href="index_mobile.html#galeri"><span class="material-symbols-outlined">camera</span></a>
+</div>
+</div>
+<div class="md:col-span-12 mt-xl pt-lg border-t border-white/10 text-center">
+<p class="font-body-sm text-body-sm text-primary-fixed">&copy; 2024 La Suvarna. In partnership with Bank Negara Indonesia. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+    const desktopContactForm = document.getElementById('desktopContactForm');
+    const desktopFormMessage = document.getElementById('desktopFormMessage');
+
+    desktopContactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        desktopFormMessage.classList.remove('hidden');
+        desktopContactForm.reset();
+    });
+
+    const storageKey = 'laSuvarnaProjectsV2';
+
+    function getAdminProjects() {
+        try {
+            return JSON.parse(localStorage.getItem(storageKey)) || {};
+        } catch (error) {
+            return {};
+        }
+    }
+
+    function applyAdminProjects() {
+        const projects = getAdminProjects();
+        document.querySelectorAll('[data-project]').forEach((card) => {
+            const data = projects[card.dataset.project];
+            if (!data) return;
+
+            const image = card.querySelector('img');
+            const title = card.querySelector('h4');
+            const subtitle = card.querySelector('p');
+            const badge = card.querySelector('.text-secondary.font-label-bold');
+
+            if (image && data.image) image.src = data.image;
+            if (title && data.name) title.textContent = data.name;
+            if (subtitle && data.price) subtitle.textContent = data.price;
+            if (badge && data.location) badge.textContent = data.location;
+        });
+    }
+
+    applyAdminProjects();
+    window.addEventListener('storage', (event) => {
+        if (event.key === storageKey) applyAdminProjects();
+    });
+</script>
+</body></html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin La Suvarna</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: Inter, sans-serif; }
+    h1, h2, h3 { font-family: Montserrat, sans-serif; }
+</style>
+</head>
+<body class="bg-[#f8f9fa] text-[#191c1d]">
+<header class="sticky top-0 z-40 border-b border-slate-300 bg-white">
+<div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+<div>
+<h1 class="text-xl font-bold text-[#004681]">Admin La Suvarna</h1>
+<p class="text-xs text-slate-700">Kelola data proyek, harga, gambar, dan detail halaman.</p>
+</div>
+<a class="rounded-lg bg-[#004681] px-4 py-2 text-sm font-bold text-white" href="../index.html">Lihat Situs</a>
+</div>
+</header>
+<main class="mx-auto grid max-w-6xl gap-6 px-4 py-6 lg:grid-cols-[280px_1fr]">
+<aside class="rounded-lg border border-slate-300 bg-white p-4">
+<h2 class="mb-3 text-sm font-bold text-[#004681]">Pilih Proyek</h2>
+<div class="grid gap-2" id="projectList"></div>
+<div class="mt-6 grid gap-2">
+<button class="rounded-lg border border-[#004681] px-4 py-2 text-sm font-bold text-[#004681]" id="resetButton" type="button">Reset Data</button>
+<button class="rounded-lg bg-[#ffaa14] px-4 py-2 text-sm font-bold text-[#2a1800]" id="exportButton" type="button">Export JSON</button>
+</div>
+</aside>
+<section class="rounded-lg border border-slate-300 bg-white p-4">
+<div class="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+<div>
+<h2 class="text-lg font-bold text-[#004681]" id="formTitle">Edit Proyek</h2>
+<p class="text-sm text-slate-700">Harga display boleh berupa teks, sedangkan plafon harus angka agar logika DP dan angsuran tetap benar.</p>
+</div>
+<button class="rounded-lg bg-[#004681] px-5 py-3 text-sm font-bold text-white" id="saveButton" type="button">Simpan Perubahan</button>
+</div>
+<form class="grid gap-4" id="projectForm">
+<div class="grid gap-4 md:grid-cols-2">
+<label class="grid gap-1 text-sm font-bold">Nama Proyek
+<input class="rounded-lg border border-slate-300 px-3 py-2 font-normal" name="name" type="text"/>
+</label>
+<label class="grid gap-1 text-sm font-bold">Judul Detail
+<input class="rounded-lg border border-slate-300 px-3 py-2 font-normal" name="title" type="text"/>
+</label>
+<label class="grid gap-1 text-sm font-bold">Lokasi
+<input class="rounded-lg border border-slate-300 px-3 py-2 font-normal" name="location" type="text"/>
+</label>
+<label class="grid gap-1 text-sm font-bold">Status
+<select class="rounded-lg border border-slate-300 px-3 py-2 font-normal" name="status">
+<option>Tersedia</option>
+<option>Promo</option>
+<option>Segera Hadir</option>
+</select>
+</label>
+<label class="grid gap-1 text-sm font-bold">Harga Display
+<input class="rounded-lg border border-slate-300 px-3 py-2 font-normal" name="price" placeholder="Contoh: Rp 600 Jutaan" type="text"/>
+</label>
+<label class="grid gap-1 text-sm font-bold">Plafon Kredit untuk Simulasi
+<input class="rounded-lg border border-slate-300 px-3 py-2 font-normal" min="0" name="plafon" step="1000000" type="number"/>
+</label>
+</div>
+<label class="grid gap-1 text-sm font-bold">URL Gambar Utama
+<input class="rounded-lg border border-slate-300 px-3 py-2 font-normal" name="image" placeholder="https://..." type="url"/>
+</label>
+<label class="grid gap-1 text-sm font-bold">Deskripsi Detail
+<textarea class="min-h-28 rounded-lg border border-slate-300 px-3 py-2 font-normal" name="description"></textarea>
+</label>
+<div class="grid gap-4 md:grid-cols-2">
+<label class="grid gap-1 text-sm font-bold">Akses Lokasi 1
+<input class="rounded-lg border border-slate-300 px-3 py-2 font-normal" name="accessOne" type="text"/>
+</label>
+<label class="grid gap-1 text-sm font-bold">Akses Lokasi 2
+<input class="rounded-lg border border-slate-300 px-3 py-2 font-normal" name="accessTwo" type="text"/>
+</label>
+</div>
+</form>
+<div class="mt-5 rounded-lg border border-slate-300 bg-slate-50 p-4">
+<h3 class="mb-2 text-sm font-bold text-[#004681]">Preview Singkat</h3>
+<div class="grid gap-3 sm:grid-cols-[160px_1fr]">
+<img alt="Preview proyek" class="h-32 w-full rounded-lg object-cover" id="previewImage"/>
+<div>
+<p class="font-bold text-[#004681]" id="previewName"></p>
+<p class="text-sm text-slate-700" id="previewLocation"></p>
+<p class="mt-2 font-bold text-[#835500]" id="previewPrice"></p>
+<p class="mt-2 text-sm text-slate-700" id="previewDescription"></p>
+</div>
+</div>
+</div>
+<p class="mt-4 hidden rounded-lg bg-green-100 px-4 py-3 text-sm font-bold text-green-800" id="saveMessage">Data tersimpan. Refresh halaman situs untuk melihat update jika tab sudah terbuka.</p>
+</section>
+</main>
+<script>
+const storageKey = 'laSuvarnaProjectsV2';
+const defaults = {
+    serpong: {
+        name: 'La Suvarna',
+        title: 'La Suvarna - 3 Unit',
+        location: 'Dekat SMA 3',
+        status: 'Tersedia',
+        price: '3 Unit Tersedia',
+        plafon: 385000000,
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAUYH2qz6Y4dWvsQJBinwFLL_42zDFqtwCPyHXsgnPbeHgH7pgO2vum_-meC-RYMK2-Bcm-yCofORizH0d_Ch_mBSMu64aBCJ7l879ZOjUL9M-Rd_FzttEtlS_TrgIXmVSTpAMt4CUrXxIb-LIZHG-Z4xuGWO2ck0WxecxKDbX3Vf_pEO9Q_WvikeSPLnwlmz-VrmIuZaGtssogBekfEpv7arPndVzQqtJP35QjvFrKP4EgvbryDcRt4ssYzX3r8FjfKa-OGL2q1YY',
+        description: 'La Suvarna lokasi dekat SMA 3 tersedia 3 unit dengan spesifikasi 2 kamar tidur, 1 kamar mandi, dan luas tanah 84 m2 (7x12). Lokasinya dekat SMA 3 dan cocok untuk hunian keluarga di area Padang.',
+        accessOne: 'Dekat SMA 3',
+        accessTwo: '2 kamar tidur, 1 kamar mandi, luas 84 m2'
+    },
+    bekasi: {
+        name: 'La Suvarna Villa Series',
+        title: 'La Suvarna Villa Series - 4 Unit',
+        location: 'Belakang Transmart',
+        status: 'Promo',
+        price: 'Rp 600 Jutaan',
+        plafon: 600000000,
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCedVHY_Zgofcsa1670MJT52ldeApBLOv03UkLHLdSHR039scxWRUFgVRv3tW-7u3QcoUF7HIkPSypKCg17b6pb02JzG28WuJBcC7Hsqa9OvbUGEB1uOx4F3M3cxrhpNRHyXdDKI4Il5FE3uVJUlgkp7qNAa5Ip20hV2RsQXSJU1GsaUz6jyWkfKbWHhZhISuv0d-JE2HqzhgmaZd2YetIVp_ClvDbl7sD6IFfSgNui0hjMK716FPavABIPpgHN5ARAezEaDeRoRQc',
+        description: 'La Suvarna Villa Series lokasi belakang Transmart tersedia 4 unit dengan harga 600 jutaan. Spesifikasi: tipe 36, 2 kamar tidur, 1 kamar mandi, dan luas tanah 105 m2.',
+        accessOne: 'Belakang Transmart',
+        accessTwo: 'Tipe 36, 2 kamar tidur, 1 kamar mandi, luas 105 m2'
+    },
+    depok: {
+        name: 'Ruyung Hewan Residence',
+        title: 'Ruyung Hewan Residence - Tipe 36/108',
+        location: 'Tarantang',
+        status: 'Tersedia',
+        price: 'DP 0%, Angsuran 1,8 Jutaan',
+        plafon: 385000000,
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAEXgs8jZgBh4VWnTs9WBIT2soPa_Tl_JHQZmoQBf40AOV8fPVoZA2glCi1hWb6VuZGgvRkURzQGIUSAbDVzzUcvnheMqVzAx4mM9Gk6iC5CrO4gonXHA7tefzq_N013gL6iaf9_5MtvRtWKDfh2HlQuT4FKEPUOEdn5vo1lRfykLtiseo2hZbuQg9nw-QNDtBvPXbkkRzaKGH_CgLpXgoGNSRAj3zlq9LfisLw18AIfqOggSmgRIQlKmBNOqMecWZTVwo0GBaZ9Ig',
+        description: 'Ruyung Hewan Residence tipe 36/108 menawarkan DP 0% dengan angsuran mulai 1,8 jutaan. Spesifikasi: 2 kamar tidur, 1 kamar mandi, dan luas tanah 108 m2.',
+        accessOne: 'Tipe 36/108',
+        accessTwo: '2 kamar tidur, 1 kamar mandi, luas 108 m2'
+    },
+    tangerang: {
+        name: 'La Suvarna Riverside',
+        title: 'La Suvarna Riverside - Mulai Tipe 36',
+        location: 'Kalumbuk',
+        status: 'Tersedia',
+        price: 'Mulai Rp 400 Jutaan',
+        plafon: 400000000,
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBO_wTE3C5x6SVODuZ-1NPvktBWPt8wEp0gjg_BN6Z3WoFeK7GpdvJ3Ryk-ZRSkcRk7KPYR9gEWxsrRaYFhNTtEuQsUXXw5E-aDJyPoJ23JJoOV8Bjo8yydnbD3cmzMqhmnsDX7RMChMKui3_axhfFGEU9wTUt9BJsBW5vB1tyFqbxhWoM1X5HyQhXVna_iI7JfbeKtIrTYgeZ61UsM0tejLgdw5ZR5p6dnYas7qk6CSMTbfJTjG4XUyEFt5W3MyjMDKOteaOE3T7Y',
+        description: 'La Suvarna Riverside berlokasi di Kalumbuk dengan harga mulai 400 jutaan. Spesifikasi: tipe 36, 2 kamar tidur, 1 kamar mandi, dan luas tanah 102 m2.',
+        accessOne: 'Tipe 36, 2 kamar tidur',
+        accessTwo: '1 kamar mandi, luas 102 m2'
+    }
+};
+
+let activeKey = 'serpong';
+let data = loadData();
+
+function loadData() {
+    try {
+        const saved = JSON.parse(localStorage.getItem(storageKey)) || {};
+        return Object.keys(defaults).reduce((projects, key) => {
+            projects[key] = { ...defaults[key], ...(saved[key] || {}) };
+            return projects;
+        }, {});
+    } catch (error) {
+        return { ...defaults };
+    }
+}
+
+function saveData() {
+    localStorage.setItem(storageKey, JSON.stringify(data));
+}
+
+function renderProjectList() {
+    const list = document.getElementById('projectList');
+    list.innerHTML = '';
+    Object.keys(defaults).forEach((key) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = `${data[key].name} | Lokasi: ${data[key].location}`;
+        button.className = `rounded-lg px-4 py-3 text-left text-sm font-bold ${key === activeKey ? 'bg-[#004681] text-white' : 'bg-slate-100 text-slate-800'}`;
+        button.addEventListener('click', () => {
+            activeKey = key;
+            renderProjectList();
+            fillForm();
+        });
+        list.appendChild(button);
+    });
+}
+
+function fillForm() {
+    const form = document.getElementById('projectForm');
+    const current = data[activeKey];
+    document.getElementById('formTitle').textContent = `Edit ${current.name} | Lokasi: ${current.location}`;
+    Object.keys(current).forEach((field) => {
+        if (form.elements[field]) form.elements[field].value = current[field] ?? '';
+    });
+    renderPreview();
+}
+
+function readForm() {
+    const form = document.getElementById('projectForm');
+    const current = {};
+    Array.from(form.elements).forEach((input) => {
+        if (!input.name) return;
+        current[input.name] = input.name === 'plafon' ? Number(input.value || 0) : input.value.trim();
+    });
+    data[activeKey] = current;
+}
+
+function renderPreview() {
+    const form = document.getElementById('projectForm');
+    document.getElementById('previewImage').src = form.elements.image.value || defaults[activeKey].image;
+    document.getElementById('previewName').textContent = form.elements.name.value;
+    document.getElementById('previewLocation').textContent = `${form.elements.location.value} - ${form.elements.status.value}`;
+    document.getElementById('previewPrice').textContent = form.elements.price.value;
+    document.getElementById('previewDescription').textContent = form.elements.description.value;
+}
+
+document.getElementById('projectForm').addEventListener('input', renderPreview);
+document.getElementById('saveButton').addEventListener('click', () => {
+    readForm();
+    saveData();
+    renderProjectList();
+    fillForm();
+    const message = document.getElementById('saveMessage');
+    message.classList.remove('hidden');
+    setTimeout(() => message.classList.add('hidden'), 2500);
+});
+
+document.getElementById('resetButton').addEventListener('click', () => {
+    if (!confirm('Reset semua data admin ke default?')) return;
+    localStorage.removeItem(storageKey);
+    data = loadData();
+    renderProjectList();
+    fillForm();
+});
+
+document.getElementById('exportButton').addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'la-suvarna-projects.json';
+    link.click();
+    URL.revokeObjectURL(url);
+});
+
+renderProjectList();
+fillForm();
+</script>
+</body>
+</html>
+
+
+
+
+
+
